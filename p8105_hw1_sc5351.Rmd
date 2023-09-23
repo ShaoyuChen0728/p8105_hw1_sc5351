@@ -9,7 +9,7 @@ date: "2023.09.23"
 library(moderndive)
 data("early_january_weather")
 ```
-
+## Problem 1
 ## Description of the dataset
 
 #The early_january_weather datasetdescribes the relevant details of the weather changes in January 2013.
@@ -43,6 +43,44 @@ plot_df
 ggsave("scatterplot.pdf", plot_df)
 ```
 
+## Problem 2
+
+```{r}
+library(tidyverse)
+# create the data frame
+random_numeric <- rnorm(10)
+logical_vector <- rnorm(10) > 0
+character_vector = c("S","H","A","O","Y","U","C","H","E","N")
+factor_levels <- c("Level1", "Level2", "Level3")
+my_vector <- sample(factor_levels, 10, replace = TRUE)
+factor_vector <- factor(my_vector, levels = factor_levels)
+
+my_data_frame <- data.frame(
+  RandomSample = random_numeric,
+  LogicalVector = logical_vector,
+  CharacterVector = character_vector,
+  FactorVector = factor_vector
+)
+my_data_frame
+
+# calculate the mean variable
+mean_random <- mean(pull(my_data_frame, RandomSample))
+mean_logical <- mean(pull(my_data_frame, LogicalVector))
+mean_character <- mean(pull(my_data_frame, CharacterVector))
+mean_factor <- mean(pull(my_data_frame, FactorVector))
+
+mean_random
+mean_logical
+mean_character
+mean_factor
+
+# I found that random sample and logical vector have the value, but character and factor vector don't.
+
+numeric_logical <- as.numeric(my_data_frame$logical_vector)
+numeric_character <- as.numeric(my_data_frame$character_vector)
+numeric_factor <- as.numeric(my_data_frame$factor_vector)
+
+# random sample and logical vector have the value, but character and factor vector show that NA. and it has already shown the mean variable.
 ```
 
 
