@@ -1,0 +1,15 @@
+---
+title: "p8105_hw1_sc5351"
+output: github_document
+date: "2023.09.23"
+---
+
+
+```{r}
+library(moderndive)
+data("early_january_weather")
+```
+
+# Description of the dataset
+
+
